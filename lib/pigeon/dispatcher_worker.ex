@@ -40,7 +40,7 @@ defmodule Pigeon.DispatcherWorker do
         {:noreply, %{adapter: adapter, state: new_state}}
 
       {:stop, reason} ->
-        {:stop, reason, %{adapter: adapter, state: state}}
+        {:shutdown, reason, %{adapter: adapter, state: state}}
 
       {:stop, reason, new_state} ->
         {:stop, reason, %{adapter: adapter, state: new_state}}

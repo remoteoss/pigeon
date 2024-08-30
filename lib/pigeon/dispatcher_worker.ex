@@ -1,5 +1,6 @@
 defmodule Pigeon.DispatcherWorker do
   @moduledoc false
+  require Logger
 
   use GenServer
 
@@ -40,7 +41,7 @@ defmodule Pigeon.DispatcherWorker do
         {:noreply, %{adapter: adapter, state: new_state}}
 
       {:stop, reason} ->
-        {:stop, {:shutdown, {reason, %{adapter: adapter, state: state}}}}
+        {:stop, {:shutdown, reason}, %{adapter: adapter, state: state}}
 
       {:stop, reason, new_state} ->
         {:stop, reason, %{adapter: adapter, state: new_state}}

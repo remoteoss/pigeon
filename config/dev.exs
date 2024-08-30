@@ -14,5 +14,5 @@ config :pigeon, PigeonTest.APNS,
 
 config :pigeon, PigeonTest.FCM,
   adapter: Pigeon.FCM,
-  project_id: System.get_env("FCM_PROJECT"),
+  project_id: System.get_env("FCM_PROJECT_ID"),
   service_account_json: System.get_env("FCM_SERVICE_ACCOUNT_JSON")
